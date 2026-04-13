@@ -11,7 +11,7 @@ export default function Home() {
         {/* Navigation */}
         <nav className="flex justify-between items-center mb-12">
           <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-200">
-            MediNotes Pro
+            MediScribe SaaS
           </h1>
           <div>
             <SignedOut>
