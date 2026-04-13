@@ -2,7 +2,7 @@
 
 > AI-powered consultation assistant for doctors in private practice.
 
-Mediscribe turns raw consultation notes — typed or dictated — into professional medical record summaries, actionable next steps, and patient-friendly emails, with one-click translation into 19 languages.
+This SaaS application turns raw consultation notes — typed or dictated — into professional medical record summaries, actionable next steps, and patient-friendly emails, with one-click translation into 19 languages.
 
 ---
 
@@ -20,14 +20,16 @@ Mediscribe turns raw consultation notes — typed or dictated — into professio
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Frontend | Next.js (Pages Router), TypeScript, Tailwind CSS |
-| Backend | FastAPI (Python), Uvicorn |
-| AI | OpenAI GPT-4o-mini (summaries, translation), Whisper (transcription) |
-| Auth | Clerk (authentication + subscription management) |
-| Deployment — Vercel | Vercel (frontend) + Vercel Serverless Functions (API) |
-| Deployment — AWS | Docker, AWS ECR, AWS App Runner |
+
+| Layer               | Technology                                                           |
+| ------------------- | -------------------------------------------------------------------- |
+| Frontend            | Next.js (Pages Router), TypeScript, Tailwind CSS                     |
+| Backend             | FastAPI (Python), Uvicorn                                            |
+| AI                  | OpenAI GPT-4o-mini (summaries, translation), Whisper (transcription) |
+| Auth                | Clerk (authentication + subscription management)                     |
+| Deployment — Vercel | Vercel (frontend) + Vercel Serverless Functions (API)                |
+| Deployment — AWS    | Docker, AWS ECR, AWS App Runner                                      |
+
 
 ---
 
@@ -118,7 +120,7 @@ Open [http://localhost:3000](http://localhost:3000) for the frontend.
 
 ### AWS (Docker + App Runner)
 
-Full step-by-step instructions are in [`week1/day5.md`](week1/day5.md).
+Full step-by-step instructions are in `[week1/day5.md](week1/day5.md)`.
 
 **Quick reference — rebuild and redeploy after code changes:**
 
@@ -143,12 +145,14 @@ Then go to AWS App Runner → select your service → **Deploy**.
 
 ## API Endpoints
 
-| Method | Path | Description |
-|---|---|---|
+
+| Method | Path                | Description                                   |
+| ------ | ------------------- | --------------------------------------------- |
 | `POST` | `/api/consultation` | Stream summary, next steps, and patient email |
-| `POST` | `/api/transcribe` | Transcribe audio dictation via Whisper |
-| `POST` | `/api/translate` | Stream translated patient letter |
-| `GET` | `/health` | Health check (used by App Runner) |
+| `POST` | `/api/transcribe`   | Transcribe audio dictation via Whisper        |
+| `POST` | `/api/translate`    | Stream translated patient letter              |
+| `GET`  | `/health`           | Health check (used by App Runner)             |
+
 
 All endpoints require a valid Clerk JWT in the `Authorization: Bearer <token>` header.
 
@@ -162,14 +166,16 @@ French · Spanish · Mandarin Chinese · Arabic · Hindi · Portuguese · German
 
 ## Environment Variables Reference
 
-| Variable | Required | Description |
-|---|---|---|
-| `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Yes | Clerk publishable key (baked into frontend build) |
-| `CLERK_SECRET_KEY` | Yes | Clerk secret key (backend only) |
-| `CLERK_JWKS_URL` | Yes | Clerk JWKS URL for JWT verification |
-| `OPENAI_API_KEY` | Yes | OpenAI API key for GPT-4o-mini and Whisper |
-| `DEFAULT_AWS_REGION` | AWS only | AWS region (e.g. `us-east-1`) |
-| `AWS_ACCOUNT_ID` | AWS only | 12-digit AWS account ID |
+
+| Variable                            | Required | Description                                       |
+| ----------------------------------- | -------- | ------------------------------------------------- |
+| `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Yes      | Clerk publishable key (baked into frontend build) |
+| `CLERK_SECRET_KEY`                  | Yes      | Clerk secret key (backend only)                   |
+| `CLERK_JWKS_URL`                    | Yes      | Clerk JWKS URL for JWT verification               |
+| `OPENAI_API_KEY`                    | Yes      | OpenAI API key for GPT-4o-mini and Whisper        |
+| `DEFAULT_AWS_REGION`                | AWS only | AWS region (e.g. `us-east-1`)                     |
+| `AWS_ACCOUNT_ID`                    | AWS only | 12-digit AWS account ID                           |
+
 
 ---
 
